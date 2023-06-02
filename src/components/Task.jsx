@@ -1,14 +1,24 @@
-import { FaCreditCard } from "react-icons/fa";
+import { FaEdit } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
-export default function Task(){
-    const text = "tarea uno";
+import './Task.css';
+
+export default function Task(props){
+
+    const {name, estado} = props;
+
+    const classTask = estado ? "task-tached":"pendiente";
+    
     return(
-        <div>
-            <input type="radio" id="check" value={0} />
-            <label htmlFor="check">{text}</label>
-            <button><FaCreditCard/></button>
-            <button><RiDeleteBin6Line/></button>
-        </div>
+        <article className="task-component">
+            <div className="check-task">
+                <input type="radio" readOnly checked ={estado} />
+                <p className={classTask}>{name}</p>
+            </div>
+            <div className="buttons-actions">
+                <button id="btn-edit"><FaEdit className="icons"/></button>
+                <button id="btn-delete"><RiDeleteBin6Line className="icons"/></button>
+            </div>
+        </article>
     )
 }

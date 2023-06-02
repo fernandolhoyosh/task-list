@@ -1,5 +1,11 @@
-function Header(){
-    return <h1>Todo App</h1>
+import '../index.css'
+
+function Header() {
+  return (
+    <header>
+      <h2>Todo App</h2>
+    </header>
+  );
 }
 
-export default Header
+export default Header;
