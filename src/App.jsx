@@ -1,17 +1,19 @@
-import Header from './components/HEader';
-import { TaskList } from './components/TaskList';
+import Header from "./components/HEader";
+import { TaskList } from "./components/TaskList";
+import AddTask from "./components/AddTask";
 
-
-import './App.css';
+import "./App.css";
 
 function App() {
-
   return (
     <>
-      <Header/>
-      <TaskList/>
+      <main>    
+        <Header />
+        <AddTask/>
+        <TaskList />
+      </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
