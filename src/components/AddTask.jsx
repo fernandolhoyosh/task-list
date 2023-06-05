@@ -7,27 +7,33 @@ import "../index.css";
 
 function AddTask() {
 
-  const [addTask, setAddTask] = useState(false);
-  const [valor, setValor] = useState('');
+  const [tasks, setTasks] = useState([]);
+  const [taskName, setTaskName] = useState('');
+  const [taskState, setTaskState] = useState(false);
 
-  const handleClick = () => {
-    setAddTask(true);
-    console.log(valor)
+  const handleAddTask = () => {
+    if(taskName.trim()){
+      const newTask = {
+        name:taskName,
+        status:taskState
+      };
+      setTasks([...tasks,newTask]);
+    }
   };
 
   const handleChange = (e) => {
-    setValor(e.target.value);
+    setTaskName(e.target.value);
   };
 
   return (
     <>
       <div className="add-task">
-        <input type="text" value={valor} onChange={handleChange} placeholder="Add your new task ..." />
-        <button onClick={handleClick}>
+        <input type="text" value={taskName} onChange={handleChange} placeholder="Add your new task ..." />
+        <button onClick={handleAddTask}>
           <IoMdAddCircle />
         </button>
       </div>
-      <TaskList state = {addTask} taskName ={valor} />
+      <TaskList obj={tasks}/>
     </>
   );
 }

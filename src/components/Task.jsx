@@ -5,12 +5,14 @@ import './Task.css';
 
 export default function Task(props){
 
-    const {name, estado} = props;
+    const {id, name, estado} = props;
+
+    console.log(props)
 
     const classTask = estado ? "task-tached":"pendiente";
     
     return(
-        <article className="task-component">
+        <article id={id} className="task-component">
             <div className="check-task">
                 <input type="radio" readOnly checked ={estado} />
                 <p className={classTask}>{name}</p>
