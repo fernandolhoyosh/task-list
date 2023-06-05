@@ -7,8 +7,6 @@ export default function Task(props){
 
     const {id, name, estado} = props;
 
-    console.log(props)
-
     const classTask = estado ? "task-tached":"pendiente";
     
     return(

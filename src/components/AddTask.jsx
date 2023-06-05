@@ -18,6 +18,7 @@ function AddTask() {
         status:taskState
       };
       setTasks([...tasks,newTask]);
+      setTaskName('');
     }
   };
 
@@ -33,7 +34,7 @@ function AddTask() {
           <IoMdAddCircle />
         </button>
       </div>
-      <TaskList obj={tasks}/>
+      <TaskList taskList={tasks}/>
     </>
   );
 }

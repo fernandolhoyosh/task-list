@@ -2,12 +2,12 @@ import './TaskList.css'
 
 import Task from './Task'
 
-export function TaskList({obj}){
+export function TaskList({taskList}){
 
     return (
         <section className='task-list'>
-            {obj.map(({name, status},index) =>(
-                <Task id={index} name={name} estado={status}/>
+            {taskList.map(({name, status},index) =>(
+                <Task key={index} id={index} name={name} estado={status}/>
             ))}
         </section>
     )
