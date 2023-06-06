@@ -6,22 +6,18 @@ import "../index.css";
 
 function AddTask() {
 
-  const [tasks, setTasks] = useState([]);
-  const [taskName, setTaskName] = useState('');
+  const [task, setTask] = useState('');
+  const [taskNameInput, setTaskNameInput] = useState('');
 
   const handleAddTask = () => {
-    if(taskName.trim()){
-      const newTask = {
-        name:taskName,
-        status:false
-      };
-      setTasks([...tasks,newTask]);
-      setTaskName('');
+    if(taskNameInput.trim()){
+      setTask(taskNameInput);
+      setTaskNameInput('');
     }
   };
 
   const handleTextChange = (e) => {
-    setTaskName(e.target.value);
+    setTaskNameInput(e.target.value);
   };
 
   return (
@@ -32,7 +28,7 @@ function AddTask() {
           <IoMdAddCircle />
         </button>
       </div>
-      <TaskList taskList={tasks}/>
+      <TaskList taskName={task}/>
     </>
   );
 }
