@@ -6,20 +6,22 @@ import './Task.css';
 
 export default function Task(props){
 
-    const [taskState, setTaskState] = useState(false);
+    const {id, name, estado, onCheckboxChange} = props;
+    const [taskState, setTaskState] = useState(estado);
 
-    const {id, name} = props;
 
     const classTask = taskState ? "task-strikethrough":"task-pending";
 
-    const handleCheckedTaskChange = (e) => {
-        setTaskState(e.target.checked);
+    const handleCheckedTaskChange = () => {
+        const isChecked = !taskState;
+        setTaskState(isChecked);
+        onCheckboxChange(id, isChecked); //Devolucion de llamada al componente padre TaskList
     };
     
     return(
         <article id={id} className="task-component">
             <div className="check-task">
-                <input type="radio" checked = {taskState} onChange={handleCheckedTaskChange} />
+                <input type="checkbox" checked = {taskState} onChange={handleCheckedTaskChange} />
                 <p className={classTask}>{name}</p>
             </div>
             <div className="buttons-actions">

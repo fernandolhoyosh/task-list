@@ -23,7 +23,7 @@ function AddTask() {
   return (
     <>
       <div className="add-task">
-        <input type="text" value={taskName} onChange={handleTextChange} placeholder="Add your new task ..." />
+        <input type="text" value={taskNameInput} onChange={handleTextChange} placeholder="Add your new task ..." />
         <button onClick={handleAddTask}>
           <IoMdAddCircle />
         </button>
