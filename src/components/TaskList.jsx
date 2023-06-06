@@ -9,6 +9,7 @@ export function TaskList({taskList}){
             {taskList.map(({name, status},index) =>(
                 <Task key={index} id={index} name={name} estado={status}/>
             ))}
+            {console.log(taskList)}
         </section>
     )
 }

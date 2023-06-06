@@ -44,7 +44,8 @@ button{
     gap: 10px;
 }
 
-.task-tached {
+.task-strikethrough {
     text-decoration: line-through;
+    text-decoration-color: blue;
   }
   
