@@ -6,7 +6,9 @@ export function TaskList(props) {
 
   const { taskName } = props;
   const [tasks, setTasks] = useState([]);
+  const [text, setText] = useState('');
 
+  // Agregar una nueva tarea a la lista
   useEffect(() => {
     if (taskName) {
       const newTask = {
@@ -17,8 +19,8 @@ export function TaskList(props) {
     }
   }, [taskName]);
 
-  //funcion para cambiar el estado de las tareas a traves de una llamada de devolucion del componente hijo
 
+  //funcion para cambiar el estado de las tareas a traves de una llamada de devolucion del componente hijo
   const handleCheckboxChange = (taskId, isChecked) =>{
     setTasks((prevTasks)=>
         prevTasks.map((task, index)=>
@@ -27,19 +29,11 @@ export function TaskList(props) {
     );
   };
 
-  localStorage.setItem("taskList", JSON.stringify(tasks));
-
-  useEffect(()=>{
-    const localStorageData = localStorage.getItem('taskList');
-    const storedTask = JSON.parse(localStorageData);
-    setTasks(storedTask);
-  },[]);
-
   return (
     <section className="task-list">
       {tasks.map(({ name, state }, index) => (
         <Task key={index} id={index} name={name} estado={state} onCheckboxChange={handleCheckboxChange} />
-      ))}{console.log(tasks)}
+      ))}{/* console.log(tasks) */}
     </section>
   );
 }
