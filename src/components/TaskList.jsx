@@ -17,6 +17,7 @@ export function TaskList(props) {
     }
   }
 
+  //Cargar la lista de tareas desde el localStorage cuando se recargue la pagina y validamos que ya hay datos en el localStorage
   useEffect(()=>{
     let localStorageData = localStorage.getItem('taskList');
     if(localStorageData){
@@ -24,6 +25,7 @@ export function TaskList(props) {
     }
   },[])
 
+  // Guardar la lista de tareas en el localStorage cada vez que la lista cambie
   useEffect(()=>{
     localStorage.setItem('taskList',JSON.stringify(tasksItems));
   },[tasksItems]);
