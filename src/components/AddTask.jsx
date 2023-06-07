@@ -1,23 +1,25 @@
 import { IoMdAddCircle } from "react-icons/io";
 import { useState } from "react";
-import { TaskList } from "./TaskList";
 
 import "../index.css";
 
-function AddTask() {
-
-  const [ newTaskName, setNewTaskName] = useState('');
+function AddTask(props) {
+  const [newTaskName, setNewTaskName] = useState("");
 
   const handleAddTask = () => {
-    alert(newTaskName);
-    setNewTaskName('');
-  }
-
+    props.createNewTask(newTaskName);
+    setNewTaskName("");
+  };
 
   return (
     <>
       <div className="add-task">
-        <input type="text" value={newTaskName} onChange={(e)=>setNewTaskName(e.target.value)} placeholder="Add your new task ..." />
+        <input
+          type="text"
+          value={newTaskName}
+          onChange={(e) => setNewTaskName(e.target.value)}
+          placeholder="Add your new task ..."
+        />
         <button onClick={handleAddTask}>
           <IoMdAddCircle />
         </button>

@@ -1,39 +1,41 @@
 import "./TaskList.css";
 import Task from "./Task";
-import { useState, useEffect } from "react";
+import { useState, useEffect} from "react";
+import AddTask from "./AddTask";
 
 export function TaskList(props) {
 
-  const { taskName } = props;
-  const [tasks, setTasks] = useState([]);
-  const [text, setText] = useState('');
+  const [tasksItems, setTasksItems] = useState([
+    {name:"task 1",state: false},
+    {name:"task 1",state: false},
+    {name:"task 1",state: false},
+  ])
 
-  // Agregar una nueva tarea a la lista
-  useEffect(() => {
-    if (taskName) {
-      const newTask = {
-        name: taskName,
-        state: false,
-      };
-      setTasks([...tasks, newTask]);
+  function createNewTask(taskName){
+    if(!tasksItems.find(task => task.name === taskName)){
+      setTasksItems([...tasksItems, {name: taskName, state: false}]);
     }
-  }, [taskName]);
+  }
 
+  useEffect(()=>{
+    let localStorageData = localStorage.getItem('taskList');
+    if(localStorageData){
+      setTasksItems(JSON.parse(localStorageData));
+    }
+  },[])
 
-  //funcion para cambiar el estado de las tareas a traves de una llamada de devolucion del componente hijo
-  const handleCheckboxChange = (taskId, isChecked) =>{
-    setTasks((prevTasks)=>
-        prevTasks.map((task, index)=>
-        index === taskId ? {...task, state: isChecked}:task
-        )
-    );
-  };
+  useEffect(()=>{
+    localStorage.setItem('taskList',JSON.stringify(tasksItems));
+  },[tasksItems]);
 
   return (
+    <>
+    <AddTask createNewTask={createNewTask}/>
     <section className="task-list">
-      {tasks.map(({ name, state }, index) => (
-        <Task key={index} id={index} name={name} estado={state} onCheckboxChange={handleCheckboxChange} />
-      ))}{/* console.log(tasks) */}
+      {tasksItems.map(({ name, state }, index) => (
+        <Task key={index} id={index} name={name} estado={state} />
+      ))}
     </section>
+    </>
   );
 }
