@@ -2,7 +2,7 @@
 
 Print de la app Task List en la rama project-2
 
-Funcionalides:
+Funcionalidades actuales:
 
 - Agregar tareas
 - Validación de input vacio
