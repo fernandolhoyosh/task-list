@@ -1,7 +1,7 @@
 import "./TaskList.css";
-import Task from "./Task";
 import { useState, useEffect} from "react";
 import AddTask from "./AddTask";
+import Task from "./Task";
 
 export function TaskList(props) {
 
@@ -10,11 +10,15 @@ export function TaskList(props) {
     {name:"task 1",state: false},
     {name:"task 1",state: false},
   ])
-
+  // Crear una nueva tarea y realizar copia del array de tareas
   function createNewTask(taskName){
     if(!tasksItems.find(task => task.name === taskName)){
       setTasksItems([...tasksItems, {name: taskName, state: false}]);
     }
+  }
+
+  const onCheckboxChange = task => {
+
   }
 
   //Cargar la lista de tareas desde el localStorage cuando se recargue la pagina y validamos que ya hay datos en el localStorage
