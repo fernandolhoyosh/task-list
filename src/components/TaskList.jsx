@@ -17,10 +17,6 @@ export function TaskList(props) {
     }
   }
 
-  const onCheckboxChange = task => {
-
-  }
-
   //Cargar la lista de tareas desde el localStorage cuando se recargue la pagina y validamos que ya hay datos en el localStorage
   useEffect(()=>{
     let localStorageData = localStorage.getItem('taskList');
@@ -39,7 +35,7 @@ export function TaskList(props) {
     <AddTask createNewTask={createNewTask}/>
     <section className="task-list">
       {tasksItems.map(({ name, state }, index) => (
-        <Task key={index} id={index} name={name} estado={state} />
+        <Task key={index} id={index} name={name} estado={state} onCheckboxChange={handleCheckboxChange} />
       ))}
     </section>
     </>
