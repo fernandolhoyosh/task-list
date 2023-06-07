@@ -35,7 +35,13 @@ header{
     color: aliceblue;
     font-size: x-large;
     border-radius: 10px;
+    transition: all 0.3s ease; /* Agrega una transición suave */
 }
+  
+  .add-task button:hover {
+    transform: scale(1.1); /* Escala del botón */
+  }
+  
 
 .add-task input[type="text"]{
     width: 95%;

@@ -2,6 +2,7 @@ import "./TaskList.css";
 import { useState, useEffect} from "react";
 import AddTask from "./AddTask";
 import Task from "./Task";
+import { ClearTasks } from "./atoms/ClearTasks";
 
 export function TaskList() {
 
@@ -36,14 +37,20 @@ export function TaskList() {
     localStorage.setItem('taskList',JSON.stringify(tasksItems));
   },[tasksItems]);
 
+  const handleClearTasks = () =>{
+    setTasksItems([]);
+    localStorage.removeItem('taskList');
+  }
+
   return (
     <>
     <AddTask createNewTask={createNewTask}/>
     <section className="task-list">
       {tasksItems.map(({ name, state }, index) => (
-        <Task key={index} id={index} name={name} estado={state} onCheckboxChange={handleCheckboxChange} />
+        <Task key={name} id={index} name={name} estado={state} onCheckboxChange={handleCheckboxChange} />
       ))}
     </section>
+    {tasksItems.length!=0 && <ClearTasks onClearTasks = {handleClearTasks} />}
     </>
   );
 }

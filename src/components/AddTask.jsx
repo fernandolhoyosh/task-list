@@ -8,8 +8,13 @@ function AddTask(props) {
 
   //funcion para capturar el nombre de la tarea
   const handleAddTask = () => {
-    props.createNewTask(newTaskName);
-    setNewTaskName("");
+    if(newTaskName.trim()){
+      props.createNewTask(newTaskName);
+      setNewTaskName("");
+    }else{
+      alert("El campo esta vacio!");
+      setNewTaskName("");
+    }
   };
 
   return (
