@@ -9,9 +9,10 @@ export default function Task(props){
     const {id, name, estado, onCheckboxChange} = props;
     const [taskState, setTaskState] = useState(estado);
 
-
+    // condicion para cambiar la clase dependiendo del estado del checkbox
     const classTask = taskState ? "task-strikethrough":"task-pending";
 
+    //funcion para cambiar y actualizar el estado del checkbox cuando se de click
     const handleCheckedTaskChange = () => {
         const isChecked = !taskState;
         setTaskState(isChecked);

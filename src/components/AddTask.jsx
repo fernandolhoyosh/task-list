@@ -6,6 +6,7 @@ import "../index.css";
 function AddTask(props) {
   const [newTaskName, setNewTaskName] = useState("");
 
+  //funcion para capturar el nombre de la tarea
   const handleAddTask = () => {
     props.createNewTask(newTaskName);
     setNewTaskName("");

@@ -3,13 +3,10 @@ import { useState, useEffect} from "react";
 import AddTask from "./AddTask";
 import Task from "./Task";
 
-export function TaskList(props) {
+export function TaskList() {
 
-  const [tasksItems, setTasksItems] = useState([
-    {name:"task 1",state: false},
-    {name:"task 1",state: false},
-    {name:"task 1",state: false},
-  ])
+  const [tasksItems, setTasksItems] = useState([]);
+
   // Crear una nueva tarea y realizar copia del array de tareas
   function createNewTask(taskName){
     if(!tasksItems.find(task => task.name === taskName)){
@@ -17,7 +14,16 @@ export function TaskList(props) {
     }
   }
 
-  //Cargar la lista de tareas desde el localStorage cuando se recargue la pagina y validamos que ya hay datos en el localStorage
+  //funcion para cambiar el estado de las tareas a traves de una llamada de devolucion del componente hijo Task
+  const handleCheckboxChange = (taskId, isChecked) =>{
+    setTasksItems((prevTasks)=>
+        prevTasks.map((task, index)=>
+        index === taskId ? {...task, state: isChecked}:task
+        )
+    );
+  };
+
+  //Cargar la lista de tareas desde el localStorage cuando se recargue la pagina y validamos si hay datos en el localStorage
   useEffect(()=>{
     let localStorageData = localStorage.getItem('taskList');
     if(localStorageData){
