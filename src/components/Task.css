@@ -7,13 +7,21 @@
     border-radius: 5px;
     background-color: #eeeeee;
     padding: 8px;
+
     animation-name: agregarTarea;
     animation-duration: 0.5s;
+
+    transition: all 0.3s ease; /* Agrega una transición suave */
 }
 
+
+.task-component:hover {
+    transform: scale(1.1); /* Escala del botón */
+  }
+
 @keyframes agregarTarea {
-  from { opacity: 0; transform: translateY(50px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateX(-100px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 .icons{
