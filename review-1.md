@@ -22,4 +22,4 @@ Implementar botón eliminar una tarea de la lista: El usuario tendra la oportuni
 
 Contador de tareas con estado pendiente: El usuario podra mirar en tiempo real la cantidad en numeros de las tareas que tiene pendiente por realizar, esto ayudara mucho al usuario a que esté consciente de las actividades que tiene pendientes por realizar.
 
-Por ultimo, estamos trabajando con empeño y dedicacion para implementar las funcionalidades que estan pendientes por agregar.
+Por ultimo, estamos trabajando con empeño y dedicacion para implementar las funcionalidades que estan pendientes por agregar a la aplicación.
