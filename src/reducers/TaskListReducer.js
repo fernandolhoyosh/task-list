@@ -11,14 +11,13 @@ export const TaskListReducer = (state, action) => {
       return [ ...state, {title: action.title, status: false}];
 
     case "updateTaskName":
-      return {
-        ...state,
-      };
+      console.log(action)
+      return state.map((task) => 
+      action.oldTitle === task.title ? {...task, title: action.updateTitle}: task)
 
     case "deleteTask":
-      return {
-        ...state,
-      };
+      console.log(action)
+      return state.filter((task, index) => index !== action.payload);
 
     case "changeStatusTask":
     console.log(action)

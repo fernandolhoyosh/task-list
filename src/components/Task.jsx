@@ -18,6 +18,25 @@ export default function Task(props){
     const handleCheckedTaskChange = () => {
         dispatch({type:"changeStatusTask", payload: id, status: !estado});
     };
+
+    //Función para actualizar el nombre de una tarea
+    const handleUpdateTaskName = () => {
+        const value = prompt('Ingrese el nuevo nombre de la tarea:',name);
+        if(value !== null){
+            const updateTaskName = value.trim();
+            if(updateTaskName){
+                dispatch({type:"updateTaskName", oldTitle: name, updateTitle: updateTaskName});
+            }else{
+                alert("Entrada vacia no valida. Intente nuevamente");
+            }
+        }  
+    }
+
+    // Función para eliminar una tarea de la lista
+    const handleDeleteTask = () => {
+        const confirmedAction = window.confirm(`¿Realmente desea eliminar la tarea: ${name}?`)
+        confirmedAction && dispatch({type:"deleteTask",payload:id});
+    };
     
     return(
         <article id={id} className="task-component">
@@ -26,8 +45,8 @@ export default function Task(props){
                 <p className={classTask}>{name}</p>
             </div>
             <div className="buttons-actions">
-                <button id="btn-edit"><FaEdit className="icons"/></button>
-                <button id="btn-delete"><RiDeleteBin6Line className="icons"/></button>
+                <button id="btn-edit" onClick={handleUpdateTaskName}><FaEdit className="icons"/></button>
+                <button id="btn-delete" onClick={handleDeleteTask}><RiDeleteBin6Line className="icons"/></button>
             </div>
         </article>
     )
