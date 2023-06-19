@@ -1,28 +1,28 @@
 import { FaEdit } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
-import { useState } from "react";
+import { useContext } from "react";
+import { TaskListContext } from "../contexts/TaskListContext";
 
 import './Task.css';
 
 export default function Task(props){
 
-    const {id, name, estado, onCheckboxChange} = props;
-    const [taskState, setTaskState] = useState(estado);
+    const {id, name, estado} = props;
+
+    const {dispatch} = useContext(TaskListContext);
 
     // condicion para cambiar la clase dependiendo del estado del checkbox
-    const classTask = taskState ? "task-strikethrough":"task-pending";
+    const classTask = estado ? "task-strikethrough":"task-pending";
 
     //funcion para cambiar y actualizar el estado del checkbox cuando se de click
     const handleCheckedTaskChange = () => {
-        const isChecked = !taskState;
-        setTaskState(isChecked);
-        onCheckboxChange(id, isChecked); //Devolucion de llamada al componente padre TaskList
+        dispatch({type:"changeStatusTask", payload: id, status: !estado});
     };
     
     return(
         <article id={id} className="task-component">
             <div className="check-task">
-                <input type="checkbox" checked = {taskState} onChange={handleCheckedTaskChange} />
+                <input type="checkbox" checked = {estado} onChange={handleCheckedTaskChange} />
                 <p className={classTask}>{name}</p>
             </div>
             <div className="buttons-actions">

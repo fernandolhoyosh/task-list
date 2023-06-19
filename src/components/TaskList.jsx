@@ -1,56 +1,40 @@
 import "./TaskList.css";
-import { useState, useEffect} from "react";
-import AddTask from "./AddTask";
+import { useEffect, useContext} from "react";
+import { TaskListContext } from "../contexts/TaskListContext";
 import Task from "./Task";
 import { ClearTasks } from "./atoms/ClearTasks";
 
 export function TaskList() {
 
-  const [tasksItems, setTasksItems] = useState([]);
-
-  // Crear una nueva tarea y realizar copia del array de tareas
-  function createNewTask(taskName){
-    if(!tasksItems.find(task => task.name === taskName)){
-      setTasksItems([...tasksItems, {name: taskName, state: false}]);
-    }
-  }
-
-  //funcion para cambiar el estado de las tareas a traves de una llamada de devolucion del componente hijo Task
-  const handleCheckboxChange = (taskId, isChecked) =>{
-    setTasksItems((prevTasks)=>
-        prevTasks.map((task, index)=>
-        index === taskId ? {...task, state: isChecked}:task
-        )
-    );
-  };
+  const {tasksList, dispatch} = useContext(TaskListContext);
 
   //Cargar la lista de tareas desde el localStorage cuando se recargue la pagina y validamos si hay datos en el localStorage
   useEffect(()=>{
     let localStorageData = localStorage.getItem('taskList');
     if(localStorageData){
-      setTasksItems(JSON.parse(localStorageData));
+      const dataStorage =JSON.parse(localStorageData);
+      dispatch({type: "loadTasksLocalStorage", loadTasks: dataStorage});
     }
-  },[])
+  },[dispatch]);
 
   // Guardar la lista de tareas en el localStorage cada vez que la lista cambie
   useEffect(()=>{
-    localStorage.setItem('taskList',JSON.stringify(tasksItems));
-  },[tasksItems]);
+    localStorage.setItem('taskList',JSON.stringify(tasksList));
+  },[tasksList]);
 
+  // Funcion para borrar todas las tareas
   const handleClearTasks = () =>{
-    setTasksItems([]);
-    localStorage.removeItem('taskList');
+    dispatch({type: "resetTasksList"});
   }
 
   return (
     <>
-    <AddTask createNewTask={createNewTask}/>
     <section className="task-list">
-      {tasksItems.map(({ name, state }, index) => (
-        <Task key={name} id={index} name={name} estado={state} onCheckboxChange={handleCheckboxChange} />
+      {tasksList.map((task, index) => (
+        <Task key={task.title} id={index} name={task.title} estado={task.status}/>
       ))}
     </section>
-    {tasksItems.length!=0 && <ClearTasks onClearTasks = {handleClearTasks} />}
+    {tasksList.length!=0 && <ClearTasks onClearTasks = {handleClearTasks} />}
     </>
   );
 }
