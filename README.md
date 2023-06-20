@@ -2,7 +2,7 @@
 
 Print de la app Task List en la rama project-3
 
-uso de Hooks: useReducer, UseContext, useEffect
+uso de Hooks: useReducer, UseContext, useEffect, customHooks
 
 Funcionalidades actuales:
 
