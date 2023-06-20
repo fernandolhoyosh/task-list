@@ -22,11 +22,6 @@ export function TaskList() {
     localStorage.setItem('taskList',JSON.stringify(tasksList));
   },[tasksList]);
 
-  // Funcion para borrar todas las tareas
-  const handleClearTasks = () =>{
-    dispatch({type: "resetTasksList"});
-  }
-
   return (
     <>
     <section className="task-list">
@@ -34,7 +29,7 @@ export function TaskList() {
         <Task key={task.title} id={index} name={task.title} estado={task.status}/>
       ))}
     </section>
-    {tasksList.length!=0 && <ClearTasks onClearTasks = {handleClearTasks} />}
+    {tasksList.length!=0 && <ClearTasks/>}
     </>
   );
 }

@@ -1,23 +1,17 @@
 import { IoMdAddCircle } from "react-icons/io";
-import { useRef, useContext } from "react";
-import { TaskListContext } from "../contexts/TaskListContext";
+import { useRef } from "react";
+import { useTasks } from "../hooks/useTasks"
 import "../index.css";
 
 function AddTask() {
 
   const inputValueRef = useRef(); //uso el hook para tomar la referencia o valor del input de texto
-  const {dispatch} = useContext(TaskListContext);
+  const {setAddTask} = useTasks(); // Recibo las funcion de añadir tarea del custom hook useTask
 
-  //funcion para capturar el nombre de la tarea
+  //funcion para capturar el nombre de la tarea y enviar el evento del form
   const handleAddTask = (e) => {
-    e.preventDefault();
-    if(inputValueRef.current.value.trim()){
-      dispatch({type: "addTask", title:inputValueRef.current.value});
-      inputValueRef.current.value = "";
-    }else{
-      alert("El campo esta vacio!");
-      inputValueRef.current.value = "";
-    }
+    setAddTask(e, inputValueRef.current.value);
+    inputValueRef.current.value = "";
   };
 
   return (

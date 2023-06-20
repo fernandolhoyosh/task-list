@@ -1,7 +1,6 @@
 import { FaEdit } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
-import { useContext } from "react";
-import { TaskListContext } from "../contexts/TaskListContext";
+import { useTasks } from "../hooks/useTasks";
 
 import './Task.css';
 
@@ -9,33 +8,25 @@ export default function Task(props){
 
     const {id, name, estado} = props;
 
-    const {dispatch} = useContext(TaskListContext);
+    //Desestructuro las funciones a utilizar del custom hook useTasks
+    const {setChangeStatusTask, setUpdateTask, setDeleteTask} = useTasks();
 
     // condicion para cambiar la clase dependiendo del estado del checkbox
     const classTask = estado ? "task-strikethrough":"task-pending";
 
-    //funcion para cambiar y actualizar el estado del checkbox cuando se de click
+    //llamada de la funcion del custom hook para cambiar y actualizar el estado del checkbox cuando se de click
     const handleCheckedTaskChange = () => {
-        dispatch({type:"changeStatusTask", payload: id, status: !estado});
+        setChangeStatusTask(id, !estado)
     };
 
-    //Función para actualizar el nombre de una tarea
+    //llamada de la Función del custom hook para actualizar el nombre de una tarea de la lista
     const handleUpdateTaskName = () => {
-        const value = prompt('Ingrese el nuevo nombre de la tarea:',name);
-        if(value !== null){
-            const updateTaskName = value.trim();
-            if(updateTaskName){
-                dispatch({type:"updateTaskName", oldTitle: name, updateTitle: updateTaskName});
-            }else{
-                alert("Entrada vacia no valida. Intente nuevamente");
-            }
-        }  
+        setUpdateTask(name);
     }
 
-    // Función para eliminar una tarea de la lista
+    //llamada de la Función del custom hook para eliminar una tarea de la lista
     const handleDeleteTask = () => {
-        const confirmedAction = window.confirm(`¿Realmente desea eliminar la tarea: ${name}?`)
-        confirmedAction && dispatch({type:"deleteTask",payload:id});
+        setDeleteTask(id, name);
     };
     
     return(

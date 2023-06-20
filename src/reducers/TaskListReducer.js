@@ -3,11 +3,7 @@ export const TaskListReducer = (state, action) => {
   switch (action.type) {
 
     case "addTask":
-        console.log(action)
-        if(state.find(task => task.title === action.title)){
-            alert("The task has already been registered");
-            return state;
-        }
+      console.log(action)     
       return [ ...state, {title: action.title, status: false}];
 
     case "updateTaskName":
