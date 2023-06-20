@@ -4,7 +4,7 @@ export const TaskListReducer = (state, action) => {
 
     case "addTask":
       console.log(action)     
-      return [ ...state, {title: action.title, status: false}];
+      return [ ...state, {title: action.title, status: false, description: action.description}];
 
     case "updateTaskName":
       console.log(action)

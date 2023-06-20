@@ -1,0 +1,31 @@
+.add-task{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 1em;
+}
+
+.add-task button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    background-color: rgb(0, 115, 255);
+    color: aliceblue;
+    font-size: x-large;
+    border-radius: 10px;
+    transition: all 0.3s ease; /* Agrega una transición suave */
+}
+  
+  .add-task button:hover {
+    transform: scale(1.1); /* Escala del botón */
+  }
+  
+
+.add-task input[type="text"]{
+    width: 95%;
+    border-radius: 8px;
+    border: 1px #999 solid;
+    padding: .5em;
+}

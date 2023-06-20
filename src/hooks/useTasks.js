@@ -6,16 +6,16 @@ export function useTasks() {
   const { tasksList, dispatch } = useContext(TaskListContext);
 
   // Funcion para agregar una tarea
-  const setAddTask = (e, taskName) => {
+  const setAddTask = (e, taskName, taskDescription) => {
     e.preventDefault();
     if(taskName.trim()){
         if(tasksList.find(task => task.title === taskName)){
             alert(`La tarea "${taskName}" ya ha sido registrada.`);
         }else{
-            dispatch({type: "addTask", title:taskName});
+            dispatch({type: "addTask", title:taskName, description:taskDescription.trim()});
         }
     }else{
-        alert("El campo esta vacio!");
+        alert("El campo de añadir tarea está vacio!");
     }
   }
 
