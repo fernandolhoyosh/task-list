@@ -9,11 +9,16 @@ export function useTasks() {
   const setAddTask = (e, taskName, taskDescription) => {
     e.preventDefault();
     if(taskName.trim()){
+      if(taskName.length < 3){
+        alert("Nombre de la tarea es muy corto");
+      }else{
         if(tasksList.find(task => task.title === taskName)){
-            alert(`La tarea "${taskName}" ya ha sido registrada.`);
-        }else{
-            dispatch({type: "addTask", title:taskName, description:taskDescription.trim()});
-        }
+          alert(`La tarea "${taskName}" ya ha sido registrada.`);
+      }else{
+          dispatch({type: "addTask", title:taskName, description:taskDescription.trim()});
+      }
+      }
+        
     }else{
         alert("El campo de añadir tarea está vacio!");
     }

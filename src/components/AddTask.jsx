@@ -28,7 +28,8 @@ function AddTask() {
   const handleDescriptionChange = () => {
     const value = inputValueRef.current.value;
     setFormValidation({
-      ...formValidation, task: value.length < 3 ? "task name is very short" : ""
+      ...formValidation,
+      task: value.length === 0 ? "task name is required" : value.length < 3 ? "task name is very short" : ""
     });
   }
   console.log(formValidation);

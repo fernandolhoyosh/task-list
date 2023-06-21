@@ -6,6 +6,6 @@ export const ClearTasks = ()=>{
     const{setResetTasksList} = useTasks(); // uso la funcion resetTaskList del custom hook useTasks
 
     return(
-        <button id="btn-reset" onClick={setResetTasksList}>Delete Tasks</button>
+        <button id="btn-reset" onClick={setResetTasksList}>Clear All</button>
     )
 }
