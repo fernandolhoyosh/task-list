@@ -2,15 +2,21 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    gap: 8px;
+    gap: 15px;
     padding: 1em;
+}
+
+.add-task label {
+  margin: 0;
+  padding: 0;
 }
 
 .add-task button{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 80px;
+    width: 40px;
+    height: 33px;
     background-color: rgb(0, 115, 255);
     color: aliceblue;
     font-size: x-large;
@@ -23,9 +29,20 @@
   }
   
 
-.add-task input[type="text"]{
+.input-text{
     width: 95%;
     border-radius: 8px;
     border: 1px #999 solid;
     padding: .5em;
+}
+
+.input-error {
+    width: 95%;
+    border-radius: 8px;
+    border: 1px red solid;
+    padding: .5em;
+}
+
+.input-error:focus {
+  outline-color: red;
 }

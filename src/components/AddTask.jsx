@@ -12,38 +12,38 @@ function AddTask() {
 
   const [formValidation, setFormValidation] = useState({task:undefined});
 
-/*   const isFormValid = Object.keys(formValidation).every(
-    (key) => formValidation[key] === ""
-  ); */
-
   //funcion para capturar el nombre de la tarea y descripcion para enviar el evento del form
   const handleAddTask = (e) => {
-    setAddTask(e, inputValueRef.current.value, inputDescription.current.value);
-    inputValueRef.current.value = "";
-    inputDescription.current.value = "";
-    inputValueRef.current.focus();
-    setFormValidation({...formValidation, task: undefined});
+    setAddTask(e, inputValueRef, inputDescription, formValidation);
+    /* setFormValidation({...formValidation, task: undefined}); */
   };
 
-  const handleDescriptionChange = () => {
+  const handleFormValidationTask = () => {
     const value = inputValueRef.current.value;
     setFormValidation({
       ...formValidation,
       task: value.length === 0 ? "task name is required" : value.length < 3 ? "task name is very short" : ""
     });
   }
+
+  const classInputTask = formValidation.task ? "input-error":"input-text";
+
   console.log(formValidation);
 
   return (
     <>
       <form className="add-task">
-        <input type="text" ref={inputValueRef} onChange={handleDescriptionChange} placeholder="Add your new task ..."/>
-        <input type="text" ref={inputDescription} placeholder="Add description ..."/>
-        <button onClick={handleAddTask}>
+        <label htmlFor="">
+        <input type="text" className={classInputTask} ref={inputValueRef} onChange={handleFormValidationTask} placeholder="Add your new task ..."/>
+        {formValidation.task && (<MessageSpan message={formValidation.task}/>)}
+        </label>
+        <label htmlFor="">
+        <input type="text" className="input-text" ref={inputDescription} placeholder="Add a description ..."/>
+        </label>
+        <button onClick={handleAddTask} title="Add task">
           <IoMdAddCircle />
         </button>
       </form>
-      {formValidation.task && (<MessageSpan message={formValidation.task}/>)}
     </>
   );
 }

@@ -6,7 +6,7 @@ import './Task.css';
 
 export default function Task(props){
 
-    const {id, name, estado} = props;
+    const {id, name, estado, description} = props;
 
     //Desestructuro las funciones a utilizar del custom hook useTasks
     const {setChangeStatusTask, setUpdateTask, setDeleteTask} = useTasks();
@@ -30,14 +30,14 @@ export default function Task(props){
     };
     
     return(
-        <article id={id} className="task-component">
+        <article id={id} className="task-component" title={description !== "" && "Description: "+ description}>
             <div className="check-task">
                 <input type="checkbox" checked = {estado} onChange={handleCheckedTaskChange} />
                 <p className={classTask}>{name}</p>
             </div>
             <div className="buttons-actions">
-                <button id="btn-edit" onClick={handleUpdateTaskName}><FaEdit className="icons"/></button>
-                <button id="btn-delete" onClick={handleDeleteTask}><RiDeleteBin6Line className="icons"/></button>
+                <button id="btn-edit" onClick={handleUpdateTaskName} title="Edit task"><FaEdit className="icons"/></button>
+                <button id="btn-delete" onClick={handleDeleteTask} title="Delete task"><RiDeleteBin6Line className="icons"/></button>
             </div>
         </article>
     )

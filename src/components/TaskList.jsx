@@ -26,7 +26,7 @@ export function TaskList() {
     <>
     <section className="task-list">
       {tasksList.map((task, index) => (
-        <Task key={task.title} id={index} name={task.title} estado={task.status}/>
+        <Task key={task.title} id={index} name={task.title} estado={task.status} description={task.description}/>
       ))}
     </section>
     {tasksList.length!=0 && <ClearTasks/>}
