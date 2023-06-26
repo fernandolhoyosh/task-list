@@ -30,7 +30,7 @@ export default function Task(props){
     };
     
     return(
-        <article id={id} className="task-component" title={description !== "" && "Description: "+ description}>
+        <article id={id} className="task-component" title={description !== "" ? "Description: "+ description : description}>
             <div className="check-task">
                 <input type="checkbox" checked = {estado} onChange={handleCheckedTaskChange} />
                 <p className={classTask}>{name}</p>
