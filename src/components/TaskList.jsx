@@ -22,6 +22,9 @@ export function TaskList() {
     localStorage.setItem('taskList',JSON.stringify(tasksList));
   },[tasksList]);
 
+  const arrayFalse = tasksList.filter((task) => task.status === false);
+  const countArray = arrayFalse.length;
+
   return (
     <>
     <section className="task-list">
@@ -29,6 +32,7 @@ export function TaskList() {
         <Task key={task.title} id={index} name={task.title} estado={task.status} description={task.description}/>
       ))}
     </section>
+    <label>Count Tasks pendient: {countArray}</label>
     {tasksList.length!=0 && <ClearTasks/>}
     </>
   );
