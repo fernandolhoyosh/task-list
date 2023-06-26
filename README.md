@@ -7,7 +7,8 @@ uso de Hooks: useReducer, UseContext, useEffect, customHooks
 Funcionalidades actuales:
 
 - Agregar tareas
-- Validación de input vacio
+- Añadir una descripción a una tarea (No obligatorio)
+- Validación del formulario
 - Marcar una tarea como terminada o pendiente
 - Botón eliminar tareas de la lista
 - Guardar y leer las tareas y su estado en el localStorage
