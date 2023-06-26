@@ -32,7 +32,7 @@ export function TaskList() {
         <Task key={task.title} id={index} name={task.title} estado={task.status} description={task.description}/>
       ))}
     </section>
-    <label>Count Tasks pendient: {countArray}</label>
+    <label>Pending tasks: {countArray}</label>
     {tasksList.length!=0 && <ClearTasks/>}
     </>
   );
