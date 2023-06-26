@@ -21,7 +21,8 @@ Funcionalidades a desarrollar a futuro:
 
 Print de la app:
 
-![image](https://github.com/fernandolhoyosh/task-list/assets/108826210/bd9d83ad-0bd1-4df5-aa33-65b69af35730)
+![image](https://github.com/fernandolhoyosh/task-list/assets/108826210/18b94f77-5713-4352-b107-291812bf152d)
+
 
 
 
