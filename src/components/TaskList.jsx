@@ -31,8 +31,8 @@ export function TaskList() {
       {tasksList.map((task, index) => (
         <Task key={task.title} id={index} name={task.title} estado={task.status} description={task.description}/>
       ))}
+    <label>Pending tasks: <strong>{countArray}</strong></label>
     </section>
-    <label>Pending tasks: {countArray}</label>
     {tasksList.length!=0 && <ClearTasks/>}
     </>
   );
