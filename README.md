@@ -1,4 +1,4 @@
-# my-react-task-list
+# task-list
 
 Print de la app Task List en la rama project-3
 
@@ -14,14 +14,16 @@ Funcionalidades actuales:
 - Guardar y leer las tareas y su estado en el localStorage
 - Actualizar el nombre de una tarea
 - Eliminar una tarea especifica
+- - Contador de tareas con estado pendiente
 
 Funcionalidades a desarrollar a futuro:
 
-- Contador de tareas con estado pendiente
+- Cambiar mensajes de alert por modal propios
 
 Print de la app:
 
-![image](https://github.com/fernandolhoyosh/task-list/assets/108826210/18b94f77-5713-4352-b107-291812bf152d)
+![image](https://github.com/fernandolhoyosh/task-list/assets/108826210/54386c61-0c24-4841-947a-d4b631d3f350)
+
 
 
 
