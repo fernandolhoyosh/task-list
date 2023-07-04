@@ -1,6 +1,6 @@
 # task-list
 
-Print de la app Task List en la rama project-3
+Print de la app Task List en la rama project-5
 
 uso de Hooks: useReducer, UseContext, useEffect, customHooks
 
@@ -14,15 +14,17 @@ Funcionalidades actuales:
 - Guardar y leer las tareas y su estado en el localStorage
 - Actualizar el nombre de una tarea
 - Eliminar una tarea especifica
-- - Contador de tareas con estado pendiente
+- Contador de tareas con estado pendiente
+- Implementación de React Router y Lazy
+- Menu de navegación
 
 Funcionalidades a desarrollar a futuro:
 
 - Cambiar mensajes de alert por modal propios
 
 Print de la app:
+![image](https://github.com/fernandolhoyosh/task-list/assets/108826210/3b3ba295-a61e-43c6-89f9-40d29e3b2f7c)
 
-![image](https://github.com/fernandolhoyosh/task-list/assets/108826210/54386c61-0c24-4841-947a-d4b631d3f350)
 
 
 
