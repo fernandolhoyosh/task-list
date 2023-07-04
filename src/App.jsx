@@ -1,26 +1,26 @@
-import Header from "./components/HEader";
-import AddTask from "./components/AddTask";
-import { TaskList } from "./components/TaskList";
-import { TaskListContext } from "./contexts/TaskListContext";
-import { useReducer } from "react";
-import { TaskListReducer } from "./reducers/TaskListReducer";
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Suspense, lazy } from "react";
+import Menu from "./components/Menu";
 import "./App.css";
 
+const Home = lazy(() => import("./pages/Home"));
+const Tareas = lazy(() => import("./pages/Tareas"));
+const AboutUs = lazy(() => import("./pages/AboutUs"));
 
 function App() {
-
-  const [tasksList, dispatch] = useReducer(TaskListReducer, []);
-
   return (
     <>
-      <main>
-        <TaskListContext.Provider value={{tasksList, dispatch}}>
-          <Header />
-          <AddTask/>
-          <TaskList/>
-        </TaskListContext.Provider>    
-      </main>
+      <BrowserRouter>
+        <Menu />
+        <Suspense fallback = {<h5>Loading...</h5>}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/task-list" element={<Tareas />} />
+            <Route path="/about-us" element={<AboutUs />} />
+            <Route path="*" element={<h4>🔎 Error 404: page not found 🔎</h4>}/>
+          </Routes>
+        </Suspense>
+      </BrowserRouter>
     </>
   );
 }

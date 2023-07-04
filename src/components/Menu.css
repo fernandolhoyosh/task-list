@@ -1,0 +1,10 @@
+.menu-nav{
+    display: flex;
+    flex-direction: row;
+    gap: 3em;
+    justify-content: center;
+    padding: 1em;
+    width: 100%;
+    background-color: #eeeeee;
+
+}
