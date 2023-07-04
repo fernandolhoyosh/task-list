@@ -1,5 +1,14 @@
+import "./Home.css";
+
 const Home = () => {
-    return <h3>Home Page</h3>
-}
+
+const appName = "to-do list app"
+
+  return (
+    <section className="home-section">
+      <h3>Welcome to {appName}!</h3>
+    </section>
+  );
+};
 
 export default Home;
