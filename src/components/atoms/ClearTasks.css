@@ -1,7 +1,8 @@
 #btn-reset{
+    font-size: 1em;
     margin: .2em auto;
     color:aliceblue;
-    background-color: red;
+    background-color: rgb(234, 88, 88);
     padding: .5em;
     border-radius: 8px;
 

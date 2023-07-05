@@ -1,8 +1,17 @@
 .home-section {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
-.home-section > h3 {
-    padding: 1em;
+.home-section > h2 {
+    padding: .8em 0;
+}
+
+.home-section > article {
+    max-width: 480px;
+    border: 1px #999 solid;
+    padding: 1em 1em;
+    border-radius: 10px;
 }
