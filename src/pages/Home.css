@@ -15,3 +15,9 @@
     padding: 1em 1em;
     border-radius: 10px;
 }
+
+.home-icon {
+    padding: 2em;
+    width: 200px;
+    height: 200px;
+}

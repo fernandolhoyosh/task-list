@@ -1,3 +1,4 @@
+import { FaTasks } from 'react-icons/fa';
 import "./Home.css";
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
           completed tasks.
         </p>
       </article>
+      <FaTasks className='home-icon'/>
     </section>
   );
 };
