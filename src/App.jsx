@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import Menu from "./components/Menu";
+import Loading from "./components/atoms/Loading";
 import "./index.css";
 import "./App.css";
 
@@ -13,7 +14,7 @@ function App() {
     <>
       <BrowserRouter>
         <Menu />
-        <Suspense fallback = {<h5>Loading...</h5>}>
+        <Suspense fallback = {<Loading/>}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/task-list" element={<Tareas />} />
