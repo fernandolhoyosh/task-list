@@ -1,10 +1,13 @@
 import { FaEdit } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { useTasks } from "../hooks/useTasks";
+import { useColorModeValue } from "@chakra-ui/react";
 
 import './Task.css';
 
 export default function Task(props){
+
+    const colorNameTask = useColorModeValue("black","black");
 
     const {id, name, estado, description} = props;
 
@@ -33,7 +36,7 @@ export default function Task(props){
         <article id={id} className="task-component" title={description !== "" ? "Description: "+ description : description}>
             <div className="check-task">
                 <input type="checkbox" checked = {estado} onChange={handleCheckedTaskChange} />
-                <p className={classTask}>{name}</p>
+                <p style={{color:colorNameTask}} className={classTask}>{name}</p>
             </div>
             <div className="buttons-actions">
                 <button id="btn-edit" onClick={handleUpdateTaskName} title="Edit task"><FaEdit className="icons"/></button>

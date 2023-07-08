@@ -4,6 +4,7 @@ header{
 }
 
 .text-header{
+    margin: 0 auto;
     padding: .5em 1em;
     display: flex;
     flex-direction: column;

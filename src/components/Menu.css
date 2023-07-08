@@ -1,6 +1,7 @@
 .menu-nav{
     display: flex;
     flex-direction: row;
+    /* width: 100%; */
     gap: 2em;
     justify-content: center;
     background-color: #eeeeee;
@@ -21,6 +22,14 @@
     background-color: gray;
     color: aliceblue;
     transform: scale(1.1);
+}
+
+.theme-button{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 1em;
+    color: black;
 }
   
   

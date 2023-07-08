@@ -7,7 +7,7 @@
 
 .task-list label {
     padding: .5em;
-    color: blue;
+    /* color: blue; */
     border-radius: 8px;
     max-width: fit-content;
 }

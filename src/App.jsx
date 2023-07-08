@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import Menu from "./components/Menu";
 import Loading from "./components/atoms/Loading";
+import { ChakraProvider } from "@chakra-ui/react";
 import "./index.css";
 import "./App.css";
 
@@ -12,6 +13,7 @@ const AboutUs = lazy(() => import("./pages/AboutUs"));
 function App() {
   return (
     <>
+    <ChakraProvider>
       <BrowserRouter>
         <Menu />
         <Suspense fallback = {<Loading/>}>
@@ -23,6 +25,7 @@ function App() {
           </Routes>
         </Suspense>
       </BrowserRouter>
+    </ChakraProvider>
     </>
   );
 }
