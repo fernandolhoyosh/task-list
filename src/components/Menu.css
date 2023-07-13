@@ -1,6 +1,7 @@
 .menu-nav{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     /* width: 100%; */
     gap: 2em;
     justify-content: center;
