@@ -58,8 +58,7 @@ export function useTasks() {
 
   // Funcion para eliminar todas las tareas de la lista
   const setResetTasksList = () => {
-    const confirmedAction = window.confirm(`Do you really want to eliminate all tasks?`)
-    confirmedAction && dispatch({type: "resetTasksList"});
+    dispatch({type: "resetTasksList"});
   }
 
   // Enviamos las funciones

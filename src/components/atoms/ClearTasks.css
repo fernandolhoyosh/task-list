@@ -1,10 +1,10 @@
 #btn-reset{
-    font-size: 1em;
     margin: .2em auto;
+    /* padding: .5em;
     color:aliceblue;
+    font-size: 1em;
     background-color: rgb(234, 88, 88);
-    padding: .5em;
-    border-radius: 8px;
+    border-radius: 8px; */
 
     transition: all 0.3s ease; /* Agrega una transición suave */
 }
