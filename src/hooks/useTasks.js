@@ -50,6 +50,12 @@ export function useTasks() {
   // Funcion para eliminar una tarea de la lista
   const setDeleteTask = (id) => {
     dispatch({type:"deleteTask",payload:id});
+    toast({
+      description: "Task successfully deleted",
+      status: "info",
+      duration: 3000,
+      isClosable: true,
+  });
   }
 
   // Funcion para cambiar el status una tarea
@@ -61,7 +67,8 @@ export function useTasks() {
   const setResetTasksList = () => {
     dispatch({type: "resetTasksList"});
     toast({
-      title: "Deleted tasks",
+      title: "Alert",
+      description: "successfully deleted tasks",
       status: "warning",
       position: "bottom",
       duration: 3000,
