@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { TaskListContext } from "../contexts/TaskListContext";
+import { useToast } from "@chakra-ui/react";
 
 export function useTasks() {
 
   const { tasksList, dispatch } = useContext(TaskListContext);
+  const toast = useToast();
 
   // Funcion para agregar una tarea
   const setAddTask = (e, inputRefTask, inputRefDescription, formValidation) => {
@@ -46,9 +48,8 @@ export function useTasks() {
   }
 
   // Funcion para eliminar una tarea de la lista
-  const setDeleteTask = (id, taskName) => {
-    const confirmedAction = window.confirm(`Do you really want to delete the task: ${taskName}?`)
-        confirmedAction && dispatch({type:"deleteTask",payload:id});
+  const setDeleteTask = (id) => {
+    dispatch({type:"deleteTask",payload:id});
   }
 
   // Funcion para cambiar el status una tarea
@@ -59,6 +60,13 @@ export function useTasks() {
   // Funcion para eliminar todas las tareas de la lista
   const setResetTasksList = () => {
     dispatch({type: "resetTasksList"});
+    toast({
+      title: "Deleted tasks",
+      status: "warning",
+      position: "bottom",
+      duration: 3000,
+      isClosable: true,
+  });
   }
 
   // Enviamos las funciones
