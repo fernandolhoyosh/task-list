@@ -27,7 +27,8 @@ export const TaskListReducer = (state, action) => {
     
     case "resetTasksList":
         console.log(action)
-        return []
+        return [];
+
   }
   return state;
 };

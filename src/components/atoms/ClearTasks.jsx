@@ -9,14 +9,29 @@ import {
     /* AlertDialogCloseButton, */
     useDisclosure,
     Button,
+    useToast,
   } from '@chakra-ui/react'
 import { useRef } from "react";
 import { useTasks } from "../../hooks/useTasks";
 
 export const ClearTasks = () => {
+
   const { isOpen, onOpen, onClose } = useDisclosure();
   const cancelRef = useRef()
+  const toast = useToast();
   const { setResetTasksList } = useTasks(); // uso la funcion resetTaskList del custom hook useTasks
+
+  const handleResetTasks = () => {
+    setResetTasksList();
+    toast({
+        title: "Deleted tasks",
+        status: "success",
+        position: "top",
+        duration: 3000,
+        isClosable: true,
+    });
+    
+  }
 
   return (
     <>
@@ -38,7 +53,7 @@ export const ClearTasks = () => {
 
             <AlertDialogFooter justifyContent='center'>
               <Button ref={cancelRef} onClick={onClose}>Cancel</Button>
-              <Button colorScheme='red' onClick={setResetTasksList} ml={3}>Delete</Button>
+              <Button colorScheme='red' onClick={handleResetTasks} ml={3}>Delete</Button>
             </AlertDialogFooter>
           </AlertDialogContent>
         </AlertDialogOverlay>
