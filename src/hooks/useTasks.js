@@ -15,12 +15,22 @@ export function useTasks() {
     const taskDescription = inputRefDescription.current.value;
 
     if(formValidation.task !== ""){
-
-      alert(formValidation.task === undefined ? "The task name cannot be empty" : formValidation.task);
-      formValidation.task = "task name  is required";
+      toast({
+        description: formValidation.task === undefined ? "The task name cannot be empty" : formValidation.task,
+        position: "top",
+        status: "warning",
+        duration: 3000,
+        isClosable: true,
+    });
     }else{
       if(tasksList.find(task => task.title === taskName)){
-        alert(`The task "${taskName}" has already been registered. Enter another name`);
+        toast({
+          description: `The task "${taskName}" has already been registered. Enter another name`,
+          position: "top",
+          status: "info",
+          duration: 5000,
+          isClosable: true,
+      });
         formValidation.task = undefined;
         inputRefTask.current.value = "";
     }else{

@@ -1,4 +1,5 @@
-import { IoMdAddCircle } from "react-icons/io";
+import { IconButton } from '@chakra-ui/react'
+import {IoMdAddCircle} from 'react-icons/io'
 import { useRef, useState} from "react";
 import { useTasks } from "../hooks/useTasks"
 import "./AddTask.css"
@@ -40,9 +41,7 @@ function AddTask() {
         <label htmlFor="">
         <input type="text" className="input-text" ref={inputDescription} placeholder="Add a description ..."/>
         </label>
-        <button onClick={handleAddTask} title="Add task">
-          <IoMdAddCircle />
-        </button>
+        <IconButton id='btn-add-task' type='submit' colorScheme="blue" aria-label="Add task" icon={<IoMdAddCircle/>} title="Add task" onClick={handleAddTask}/>
       </form>
     </>
   );
