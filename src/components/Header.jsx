@@ -1,16 +1,25 @@
 import "./Header.css";
+import { Heading } from "@chakra-ui/react";
 
 function Header() {
   return (
     <>
       <header>
-        <h2>Task List</h2>
+        <Heading
+          as="h4"
+          size="md"
+          p="1em 0"
+          textAlign="center"
+          textDecoration="underline"
+        >
+          Task List
+        </Heading>
       </header>
       <div className="text-header">
         <p>
           <strong>Note: </strong>
-          The add a description field is not mandatory, if you add it you can see
-          the description of the task by hovering the cursor over the task.
+          The add a description field is not mandatory, if you add it you can
+          see the description of the task by hovering the cursor over the task.
         </p>
       </div>
     </>

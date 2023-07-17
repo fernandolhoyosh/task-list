@@ -1,4 +1,4 @@
-.home-section {
+/* .home-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -14,7 +14,7 @@
     border: 1px #999 solid;
     padding: 1em 1em;
     border-radius: 10px;
-}
+} */
 
 .home-icon {
     padding: 2em;

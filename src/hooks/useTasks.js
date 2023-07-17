@@ -19,7 +19,7 @@ export function useTasks() {
       toast({
         description: formValidation.task === undefined ? "The task name cannot be empty" : formValidation.task,
         position: "top",
-        status: "warning",
+        status: "error",
         duration: 3000,
         isClosable: true,
     });
@@ -39,6 +39,13 @@ export function useTasks() {
         formValidation.task = undefined;
         inputRefTask.current.value = "";
         inputRefDescription.current.value = "";
+
+        toast({
+          description: "Task successfully added to the list",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+      });
 
       }
     }
@@ -61,7 +68,7 @@ export function useTasks() {
           }else{
             toast({
               description: "Invalid empty entry. Try again",
-              status: "info",
+              status: "error",
               duration: 3000,
               isClosable: true,
           });

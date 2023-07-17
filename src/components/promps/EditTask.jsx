@@ -1,33 +1,63 @@
-import {
-    AlertDialog,
-    AlertDialogBody,
-    AlertDialogFooter,
-    AlertDialogHeader,
-    AlertDialogContent,
-    AlertDialogOverlay,
-    AlertDialogCloseButton,
-    Button,
+ import {
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
+    ModalCloseButton,
+    FormControl,
+    FormLabel,
     Input,
-    FormControl
+    Button
   } from '@chakra-ui/react'
 
-  import { useRef } from 'react';
+import { useRef } from 'react';
 import { useTasks } from '../../hooks/useTasks';
 
 const EditTask = ({isOpen, onClose, name}) => {
 
-    const cancelRef = useRef();
     const inputUpdateTask = useRef();
+    const finalRef = useRef();
     const { setUpdateTask } = useTasks();
 
     //llamada de la Función del custom hook para actualizar el nombre de una tarea de la lista
     const handleUpdateTaskName = (e) => {
-        setUpdateTask(e, name, inputUpdateTask.current.value);
+        setUpdateTask(e,name, inputUpdateTask.current.value);
+        onClose();
     }
 
   return (
     <>
-      <AlertDialog 
+    <Modal
+        initialFocusRef={inputUpdateTask}
+        finalFocusRef={finalRef}
+        isOpen={isOpen}
+        onClose={onClose}
+      >
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Update task</ModalHeader>
+          <ModalCloseButton />
+          <form>
+          <ModalBody pb={6}>
+            <FormControl>
+              <FormLabel>Enter the new task name:</FormLabel>
+              <Input defaultValue={name} ref={inputUpdateTask} placeholder='Enter the new task name:' />
+            </FormControl>
+          </ModalBody>
+
+          <ModalFooter>
+            <Button type='submit' colorScheme='blue' mr={3} onClick={handleUpdateTaskName}>
+              Save
+            </Button>
+            <Button onClick={onClose}>Cancel</Button>
+          </ModalFooter>
+          </form>
+        </ModalContent>
+      </Modal>
+
+      {/* <AlertDialog 
         isOpen={isOpen}
         leastDestructiveRef={cancelRef}
         onClose={onClose}
@@ -54,7 +84,7 @@ const EditTask = ({isOpen, onClose, name}) => {
                 </form>
           </AlertDialogContent>
         </AlertDialogOverlay>
-      </AlertDialog>
+      </AlertDialog> */}
     </>
   )
 

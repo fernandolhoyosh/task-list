@@ -44,7 +44,7 @@ const AlertDeleteTask = ({isOpen, onClose, id, name}) => {
                 Cancel
               </Button>
               <Button colorScheme='red' onClick={handleDeleteTask} ml={3}>
-                Confirm
+                Delete
               </Button>
             </AlertDialogFooter>
           </AlertDialogContent>

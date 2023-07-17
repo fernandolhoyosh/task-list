@@ -39,7 +39,7 @@ export const ClearTasks = () => {
 
             <AlertDialogFooter justifyContent='center'>
               <Button ref={cancelRef} onClick={onClose}>Cancel</Button>
-              <Button colorScheme='red' onClick={setResetTasksList} ml={3}>Delete</Button>
+              <Button colorScheme='red' onClick={setResetTasksList} ml={3}>confirm</Button>
             </AlertDialogFooter>
           </AlertDialogContent>
         </AlertDialogOverlay>
