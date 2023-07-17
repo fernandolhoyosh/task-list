@@ -1,5 +1,5 @@
 import { IconButton } from '@chakra-ui/react'
-import {IoMdAddCircle} from 'react-icons/io'
+import { PhoneIcon, AddIcon, WarningIcon } from '@chakra-ui/icons'
 import { useRef, useState} from "react";
 import { useTasks } from "../hooks/useTasks"
 import "./AddTask.css"
@@ -34,14 +34,10 @@ function AddTask() {
   return (
     <>
       <form className="add-task">
-        <label htmlFor="">
         <input type="text" className={classInputTask} ref={inputValueRef} onChange={handleFormValidationTask} placeholder="Add your new task ..."/>
-        {formValidation.task && (<MessageSpan message={formValidation.task}/>)}
-        </label>
-        <label htmlFor="">
         <input type="text" className="input-text" ref={inputDescription} placeholder="Add a description ..."/>
-        </label>
-        <IconButton id='btn-add-task' type='submit' colorScheme="blue" aria-label="Add task" icon={<IoMdAddCircle/>} title="Add task" onClick={handleAddTask}/>
+        <IconButton id='btn-add-task' type='submit' colorScheme="blue" aria-label="Add task" icon={<AddIcon/>} title="Add task" onClick={handleAddTask}/>
+        {formValidation.task && (<MessageSpan message={formValidation.task}/>)}
       </form>
     </>
   );

@@ -15,6 +15,7 @@ export function useTasks() {
     const taskDescription = inputRefDescription.current.value;
 
     if(formValidation.task !== ""){
+      toast.closeAll();
       toast({
         description: formValidation.task === undefined ? "The task name cannot be empty" : formValidation.task,
         position: "top",
@@ -45,16 +46,27 @@ export function useTasks() {
   }
 
   // Funcion para actualizar el nombre de una tarea
-  const setUpdateTask = (taskName) => {
-    const value = prompt('Enter the new task name:',taskName);
-        if(value !== null){
-            const updateTaskName = value.trim();
-            if(updateTaskName){
-                dispatch({type:"updateTaskName", oldTitle: taskName, updateTitle: updateTaskName});
-            }else{
-                alert("Invalid empty entry. Try again");
-            }
-        }  
+  const setUpdateTask = (e, taskName, newTaskName) => {
+        e.preventDefault();
+        if(newTaskName !== null){
+          const updateTaskName = newTaskName.trim();
+          if(updateTaskName){
+            dispatch({type:"updateTaskName", oldTitle: taskName, updateTitle: updateTaskName});
+            toast({
+              description: "The task name has been updated",
+              status: "info",
+              duration: 3000,
+              isClosable: true,
+          });
+          }else{
+            toast({
+              description: "Invalid empty entry. Try again",
+              status: "info",
+              duration: 3000,
+              isClosable: true,
+          });
+          }
+        }
   }
 
   // Funcion para eliminar una tarea de la lista

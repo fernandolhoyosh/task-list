@@ -4,6 +4,7 @@ import { useTasks } from "../hooks/useTasks";
 import { useColorModeValue } from "@chakra-ui/react";
 
 import AlertDeleteTask from "./alerts/AlertDeleteTask";
+import EditTask from "./promps/EditTask";
 
 import './Task.css';
 import { useState } from "react";
@@ -12,11 +13,12 @@ export default function Task(props){
 
     const colorNameTask = useColorModeValue("black","black");
     const [clickDelete, setClickDelete] = useState(false);
+    const [clickEdit, setClickEdit] = useState(false);
 
     const {id, name, estado, description} = props;
 
     //Desestructuro las funciones a utilizar del custom hook useTasks
-    const {setChangeStatusTask, setUpdateTask} = useTasks();
+    const {setChangeStatusTask} = useTasks();
 
     // condicion para cambiar la clase dependiendo del estado del checkbox
     const classTask = estado ? "task-strikethrough":"task-pending";
@@ -26,11 +28,6 @@ export default function Task(props){
         setChangeStatusTask(id, !estado)
     };
 
-    //llamada de la Función del custom hook para actualizar el nombre de una tarea de la lista
-    const handleUpdateTaskName = () => {
-        setUpdateTask(name);
-    }
-    
     return(
         <article id={id} className="task-component" title={description !== "" ? "Description: "+ description : description}>
             <div className="check-task">
@@ -38,10 +35,11 @@ export default function Task(props){
                 <p style={{color:colorNameTask}} className={classTask}>{name}</p>
             </div>
             <div className="buttons-actions">
-                <button id="btn-edit" onClick={handleUpdateTaskName} title="Edit task"><FaEdit className="icons"/></button>
+                <button id="btn-edit" onClick={() => setClickEdit(true)} title="Edit task"><FaEdit className="icons"/></button>
                 <button id="btn-delete" onClick={() => setClickDelete(true)} title="Delete task"><RiDeleteBin6Line className="icons"/></button>
             </div>
             {<AlertDeleteTask isOpen={clickDelete} onClose={()=>setClickDelete(false)} id={id} name={name}/>}
+            {<EditTask isOpen = {clickEdit} onClose={()=>setClickEdit(false)} name={name} />}
         </article>
     )
 }
