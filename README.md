@@ -17,13 +17,17 @@ Funcionalidades actuales:
 - Contador de tareas con estado pendiente
 - Implementación de React Router y Lazy
 - Menu de navegación
+- Componentes y alunos diseños de chakra UI
+- Toast o alertas al usuario
 
 Funcionalidades a desarrollar a futuro:
 
-- Cambiar mensajes de alert por modal propios
+- Agregar toast para dar aviso cuando se añada una nueva tarea
 
 Print de la app:
-![image](https://github.com/fernandolhoyosh/task-list/assets/108826210/3b3ba295-a61e-43c6-89f9-40d29e3b2f7c)
+
+![image](https://github.com/fernandolhoyosh/task-list/assets/108826210/6daf0667-9ac2-413f-b33b-4e9fb9205b3f)
+
 
 
 
