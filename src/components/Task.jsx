@@ -8,6 +8,7 @@ import EditTask from "./promps/EditTask";
 
 import './Task.css';
 import { useState } from "react";
+import { Checkbox } from "@chakra-ui/react";
 
 export default function Task(props){
 
@@ -31,7 +32,8 @@ export default function Task(props){
     return(
         <article id={id} className="task-component" title={description !== "" ? "Description: "+ description : description}>
             <div className="check-task">
-                <input type="checkbox" checked = {estado} onChange={handleCheckedTaskChange} />
+                <Checkbox size='lg' colorScheme='green' borderColor="gray" defaultChecked={estado} onChange={handleCheckedTaskChange} />
+                {/* <input type="checkbox" checked = {estado} onChange={handleCheckedTaskChange} /> */}
                 <p style={{color:colorNameTask}} className={classTask}>{name}</p>
             </div>
             <div className="buttons-actions">
