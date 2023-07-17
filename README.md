@@ -17,7 +17,7 @@ Funcionalidades actuales:
 - Contador de tareas con estado pendiente
 - Implementación de React Router y Lazy
 - Menu de navegación
-- Componentes y alunos diseños de chakra UI
+- Componentes de chakra UI
 - Toast o alertas al usuario
 
 Funcionalidades a desarrollar a futuro:
