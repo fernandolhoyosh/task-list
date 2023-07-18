@@ -7,13 +7,17 @@ import {
     AlertDialogOverlay,
     AlertDialogCloseButton,
     Button,
+    Container,
+    useColorModeValue
   } from '@chakra-ui/react'
 
+import {DeleteIcon} from '@chakra-ui/icons';
 import { useRef } from 'react';
 import { useTasks } from '../../hooks/useTasks';
 
 const AlertDeleteTask = ({isOpen, onClose, id, name}) => {
 
+    const colorIcon = useColorModeValue("red.500","red.200");
     const cancelRef = useRef();
     const { setDeleteTask } = useTasks();
 
@@ -34,8 +38,13 @@ const AlertDeleteTask = ({isOpen, onClose, id, name}) => {
             <AlertDialogHeader fontSize='lg' fontWeight='bold'>
               Delete task
             </AlertDialogHeader>
+            <AlertDialogCloseButton/>
 
-            <AlertDialogBody>
+            <Container centerContent>
+              <DeleteIcon w={10} h={10} color={colorIcon}/>
+            </Container>
+
+            <AlertDialogBody textAlign={"center"}>
                 Do you really want to delete the task: <strong>{name}</strong>?
             </AlertDialogBody>
 

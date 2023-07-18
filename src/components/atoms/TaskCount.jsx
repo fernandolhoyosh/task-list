@@ -1,10 +1,10 @@
 import { TaskListContext } from "../../contexts/TaskListContext";
 import { useContext } from "react";
-import { Tag } from "@chakra-ui/react";
+import { useColorModeValue, Tag } from "@chakra-ui/react";
 
 const TaskCount = () => {
   const { tasksList } = useContext(TaskListContext);
-
+  const tagVariant = useColorModeValue("subtle","solid");
   const arrayFalse = tasksList.filter((task) => task.status === false);
   const countArray = arrayFalse.length;
   const colorScheme = countArray != 0 ? "gray" : "green";
@@ -16,7 +16,7 @@ const TaskCount = () => {
           size="lg"
           m="1em auto"
           p=".8em"
-          variant="subtle"
+          variant={tagVariant}
           colorScheme={colorScheme}
         >
           {countArray !== 0

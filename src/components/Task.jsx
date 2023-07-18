@@ -1,7 +1,7 @@
 import { FaEdit } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { useTasks } from "../hooks/useTasks";
-import { useColorModeValue, Tag, Checkbox, Highlight  } from "@chakra-ui/react";
+import { useColorModeValue, Tag, Checkbox, } from "@chakra-ui/react";
 
 import AlertDeleteTask from "./alerts/AlertDeleteTask";
 import EditTask from "./promps/EditTask";
@@ -10,7 +10,7 @@ import "./Task.css";
 import { useState } from "react";
 
 export default function Task(props) {
-  /* const colorNameTask = useColorModeValue("black","black"); */
+  const tagVariant = useColorModeValue("subtle","solid");
   const [clickDelete, setClickDelete] = useState(false);
   const [clickEdit, setClickEdit] = useState(false);
 
@@ -21,7 +21,7 @@ export default function Task(props) {
 
   // condicion para cambiar los styles de la clase dependiendo del estado del checkbox
   const classTaskText = estado ? "task-strikethrough" : "task-pending";
-  const colorSchemeTag = estado ? "gray" : "gray";
+  const colorSchemeTag = estado ? "green" : "gray";
 
   //llamada de la funcion del custom hook para cambiar y actualizar el estado del checkbox cuando se de click
   const handleCheckedTaskChange = () => {
@@ -33,6 +33,7 @@ export default function Task(props) {
       id={id}
       className="task-component"
       size="lg"
+      variant={"subtle"}
       colorScheme={colorSchemeTag}
       title={description !== "" ? "Description: " + description : description}
     >
@@ -47,7 +48,6 @@ export default function Task(props) {
         />
         {/* <input type="checkbox" checked = {estado} onChange={handleCheckedTaskChange} /> */}
         <p className={classTaskText}>{name}</p>
-        {/* <Highlight query={name} styles={{ px: '5', py: '2', rounded:'full', bg: 'green.100' }} >{name}</Highlight> */}
       </div>
       <div className="buttons-actions">
         <button

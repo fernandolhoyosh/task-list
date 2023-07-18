@@ -6,15 +6,18 @@ import {
     AlertDialogHeader,
     AlertDialogContent,
     AlertDialogOverlay,
-    /* AlertDialogCloseButton, */
+    AlertDialogCloseButton,
     useDisclosure,
     Button,
+    Container,
+    useColorModeValue
   } from '@chakra-ui/react'
+import {WarningTwoIcon} from '@chakra-ui/icons';
 import { useRef } from "react";
 import { useTasks } from "../../hooks/useTasks";
 
 export const ClearTasks = () => {
-
+  const colorIcon = useColorModeValue("red.500","red.200");
   const { isOpen, onOpen, onClose } = useDisclosure();
   const cancelRef = useRef();
   const { setResetTasksList } = useTasks(); // uso la funcion resetTaskList del custom hook useTasks
@@ -32,6 +35,11 @@ export const ClearTasks = () => {
             <AlertDialogHeader fontSize='lg' fontWeight='bold'>
               Delete tasks
             </AlertDialogHeader>
+            <AlertDialogCloseButton/>
+
+            <Container centerContent>
+              <WarningTwoIcon w={10} h={10} color={colorIcon}/>
+            </Container>
 
             <AlertDialogBody textAlign='center'>
             Do you really want to eliminate all tasks?

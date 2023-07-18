@@ -5,7 +5,7 @@
     width: 100%;
     gap: 2em;
     justify-content: center;
-    background-color: #eeeeee;
+    /* background-color: #eeeeee; */
 }
 
 .nav-item {
@@ -14,15 +14,15 @@
     flex-direction: row;
     padding: 1em;
     gap: 8px;
-    color: black;
+    /* color: black; */
     text-decoration: none;
-    transition: transform 0.3s;
+    /* transition: transform 0.3s; */
 }
   
 .nav-item:hover {
-    background-color: gray;
-    color: aliceblue;
-    transform: scale(1.1);
+    /* background-color: gray;
+    color: aliceblue; */
+    /* transform: scale(1.1); */
 }
 
 .theme-button{
@@ -30,7 +30,7 @@
     align-items: center;
     flex-direction: row;
     padding: 1em;
-    color: black;
+    /* color: black; */
 }
   
   

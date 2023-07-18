@@ -9,14 +9,19 @@
     FormControl,
     FormLabel,
     Input,
-    Button
-  } from '@chakra-ui/react'
+    Button,
+    Container,
+    useColorModeValue
+  } from '@chakra-ui/react';
+
+import { EditIcon } from '@chakra-ui/icons';
 
 import { useRef } from 'react';
 import { useTasks } from '../../hooks/useTasks';
 
 const EditTask = ({isOpen, onClose, name}) => {
 
+    const colorIcon = useColorModeValue("blue.500","blue.200");
     const inputUpdateTask = useRef();
     const finalRef = useRef();
     const { setUpdateTask } = useTasks();
@@ -40,10 +45,13 @@ const EditTask = ({isOpen, onClose, name}) => {
           <ModalHeader>Update task</ModalHeader>
           <ModalCloseButton />
           <form>
+            <Container centerContent>
+              <EditIcon w={10} h={10} color={colorIcon}/>
+            </Container>
           <ModalBody pb={6}>
             <FormControl>
               <FormLabel>Enter the new task name:</FormLabel>
-              <Input defaultValue={name} ref={inputUpdateTask} placeholder='Enter the new task name:' />
+              <Input defaultValue={name} ref={inputUpdateTask} placeholder='Enter the new task name' />
             </FormControl>
           </ModalBody>
 
