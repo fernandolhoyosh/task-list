@@ -1,18 +1,17 @@
 import { FaEdit } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { useTasks } from "../hooks/useTasks";
-import { useColorModeValue } from "@chakra-ui/react";
+import { useColorModeValue, Tag, Checkbox } from "@chakra-ui/react";
 
 import AlertDeleteTask from "./alerts/AlertDeleteTask";
 import EditTask from "./promps/EditTask";
 
 import './Task.css';
 import { useState } from "react";
-import { Checkbox } from "@chakra-ui/react";
 
 export default function Task(props){
 
-    const colorNameTask = useColorModeValue("black","black");
+    /* const colorNameTask = useColorModeValue("black","black"); */
     const [clickDelete, setClickDelete] = useState(false);
     const [clickEdit, setClickEdit] = useState(false);
 
@@ -30,11 +29,12 @@ export default function Task(props){
     };
 
     return(
-        <article id={id} className="task-component" title={description !== "" ? "Description: "+ description : description}>
+        <Tag id={id} className="task-component" size="lg" colorScheme="gray" title={description !== "" ? "Description: "+ description : description}>
+        {/* <article id={id} className="task-component" title={description !== "" ? "Description: "+ description : description}> */}
             <div className="check-task">
                 <Checkbox size='lg' colorScheme='green' borderColor="gray" defaultChecked={estado} onChange={handleCheckedTaskChange} />
                 {/* <input type="checkbox" checked = {estado} onChange={handleCheckedTaskChange} /> */}
-                <p style={{color:colorNameTask}} className={classTask}>{name}</p>
+                <p className={classTask}>{name}</p>
             </div>
             <div className="buttons-actions">
                 <button id="btn-edit" onClick={() => setClickEdit(true)} title="Edit task"><FaEdit className="icons"/></button>
@@ -42,6 +42,7 @@ export default function Task(props){
             </div>
             {<AlertDeleteTask isOpen={clickDelete} onClose={()=>setClickDelete(false)} id={id} name={name}/>}
             {<EditTask isOpen = {clickEdit} onClose={()=>setClickEdit(false)} name={name} />}
-        </article>
+        {/* </article> */}
+        </Tag>
     )
 }

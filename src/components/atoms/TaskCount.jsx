@@ -14,9 +14,8 @@ const TaskCount = () => {
       {tasksList.length != 0 && (
         <Tag
           size="lg"
-          borderRadius="full"
           m="1em auto"
-          p=".5em 1.5em"
+          p=".8em"
           variant="subtle"
           colorScheme={colorScheme}
         >
