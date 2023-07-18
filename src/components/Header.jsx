@@ -8,7 +8,6 @@ function Header() {
         <Heading
           as="h4"
           size="md"
-          p="1em 0"
           textAlign="center"
           textDecoration="underline"
         >

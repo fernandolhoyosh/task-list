@@ -2,7 +2,7 @@ import "./MessageSpan.css"
 
 const MessageSpan = ({message}) => {
 
-    return <span>{message}</span>
+    return <span className="message-error">{message}</span>
 }
 
 export default MessageSpan;
