@@ -8,7 +8,7 @@
     /* background-color: #eeeeee; */
 }
 
-.nav-item {
+.nav-item-light, .nav-item-dark{
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -16,12 +16,19 @@
     gap: 8px;
     /* color: black; */
     text-decoration: none;
+    border: 3px solid transparent;
     /* transition: transform 0.3s; */
 }
   
-.nav-item:hover {
-    /* background-color: gray;
-    color: aliceblue; */
+.nav-item-light:hover {
+    color: rgb(0, 132, 255);
+    border-bottom: 3px solid rgb(0, 132, 255);
+    /* transform: scale(1.1); */
+}
+
+.nav-item-dark:hover {
+    color: #90cdf4;
+    border-bottom: 3px solid #90cdf4;
     /* transform: scale(1.1); */
 }
 
