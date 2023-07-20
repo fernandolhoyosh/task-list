@@ -20,13 +20,10 @@ Funcionalidades actuales:
 - Componentes de chakra UI
 - Toast o alertas al usuario
 
-Funcionalidades a desarrollar a futuro:
-
-- Agregar toast para dar aviso cuando se añada una nueva tarea
-
 Print de la app:
 
-![image](https://github.com/fernandolhoyosh/task-list/assets/108826210/6daf0667-9ac2-413f-b33b-4e9fb9205b3f)
+![image](https://github.com/fernandolhoyosh/task-list/assets/108826210/28d877ef-f9b8-466d-8b44-d50ddceb80cd)
+
 
 
 
